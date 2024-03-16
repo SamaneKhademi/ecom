@@ -17,9 +17,10 @@
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="logout/">خارج شدن</a></li>
+                            <li class="nav-item"><a class="nav-link" href="logout/">خارج شدن</a></li>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href="login/">وارد شدن</a></li>
+                            <li class="nav-item"><a class="nav-link" href="login/">وارد شدن</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/signUp/">ثبت نام</a></li>
                         {% endif %}
                     </ul>
                     <form class="d-flex">
