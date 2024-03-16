@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Category(models.Model):
@@ -26,6 +27,11 @@ class Product(models.Model):
     price = models.DecimalField(default=0, decimal_places=0, max_digits=12)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     picture = models.ImageField(upload_to='uploads/product/')
+
+    is_sala = models.BooleanField(default=False)
+    sale_price = models.DecimalField(default=0, decimal_places=0, max_digits=12)
+
+    star = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
 
     def __str__(self):
         return self.name
