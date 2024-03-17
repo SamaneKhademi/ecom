@@ -43,8 +43,8 @@ def signUp_user(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
-            password1 = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password1)
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, 'صفحه کاربری شما ساخته شد')
             return redirect('home')
