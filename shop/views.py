@@ -44,12 +44,13 @@ def signUp_user(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
+            #log in user
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, 'صفحه کاربری شما ساخته شد')
             return redirect('home')
         else:
-            messages.error(request, 'مشکلی در ثبت نام شما وجود دارد')
+            messages.success(request, 'مشکلی در ثبت نام شما وجود دارد')
             return redirect('signUp')
     else:
         return render(request, 'signUp.html', {'form':form})

@@ -32,7 +32,14 @@
                     {% else %}
                     <p class="card-text">💰 قیمت : {{ product.price | intcomma }} تومان</p>
                     {% endif %}
+                    <p class="card-text">تعداد :
 
+                        {% for key,value in quantities.items %}
+                            {% if key == product.id|slugify %}
+                                {{ value }}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
                     <br><br>
                     <a href="{% url 'home' %}" class="btn btn-secondary">بازگشت به صفحه اصلی</a>
 
@@ -46,5 +53,6 @@
         <br><br>
         <center><h3 class="container">سبد شما خالی است</h3></center>
     {% endif %}
+    تعداد :
 <br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock %}

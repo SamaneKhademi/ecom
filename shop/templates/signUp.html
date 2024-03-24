@@ -13,14 +13,14 @@
 <div class="container">
     <div class="row">
         <center>
-            <div class="col-5">
-                <form method="post" action="{% url 'signUp' %}">
-                    {% csrf_token %}
-                        {{ form.as_p }}
-                    <br><br>
-                    <button type="submit" class="btn btn-secondary">ثبت نام</button>
-                </form>
-            </div>
+        <div class="col-md-6">
+            <form method="post" action="{% url 'signUp' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br><br>
+                <button type="submit" class="btn btn-secondary">ثبت نام</button>
+            </form>
+        </div>
         </center>
     </div>
 </div>
